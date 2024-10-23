@@ -11,8 +11,10 @@ const HeaderRight = memo(() => {
   /** 副作用代码 */
   useEffect(() => {
     function windowHandleClick() {
+      console.log('first')
       setShowPanel(false)
     }
+    // 第三个参数 true：在事件捕获阶段触发，冒泡时不使用, 从外到内，从捕获到冒泡
     window.addEventListener("click", windowHandleClick, true)
     return () => {
       window.removeEventListener("click", windowHandleClick, true)
@@ -21,6 +23,7 @@ const HeaderRight = memo(() => {
 
   /** 事件处理函数 */
   function profileClickHandle() {
+    console.log("second")
     setShowPanel(true)
   }
 
@@ -37,22 +40,8 @@ const HeaderRight = memo(() => {
       <div className='profile' onClick={profileClickHandle}>
         <IconMenu />
         <IconAvatar />
-
-        {/* { showPanel && (
-          <div className='panel'>
-            <div className='top'>
-              <div className='item register'>注册</div>
-              <div className='item login'>登录</div>
-            </div>
-            <div className='bottom'>
-              <div className='item'>出租房源</div>
-              <div className='item'>开展体验</div>
-              <div className='item'>帮助</div>
-            </div>
-          </div>
-        ) } */}
-
-        <div className="panel">
+        
+        {showPanel && (<div className="panel">
           <div className="top">
             <div className='item register'>注册</div>
             <div className='item login'>登录</div>
@@ -62,8 +51,7 @@ const HeaderRight = memo(() => {
             <div className='item'>开展体验</div>
             <div className='item'>帮助</div>
           </div>
-        </div>
-
+        </div>)}
       </div>
     </RightWrapper>
   )

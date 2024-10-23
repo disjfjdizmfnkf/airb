@@ -45,7 +45,7 @@ export const RightWrapper = styled.div`
 
     ${props => props.theme.mixin.boxShadow};
 
-    /* .panel {
+    .panel {
       position: absolute;
       top: 54px;
       right: 0;
@@ -72,11 +72,6 @@ export const RightWrapper = styled.div`
       .top {
         border-bottom: 1px solid #ddd;
       }
-    } */
-    .panel {
-      height: 260px;
-      width: 200px;
     }
-
   }
 `
