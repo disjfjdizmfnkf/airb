@@ -12,7 +12,6 @@ export const RightWrapper = styled.div`
 
   .btns {
     display: flex;
-    box-sizing: content-box;
 
     .btn {
       height: 18px;

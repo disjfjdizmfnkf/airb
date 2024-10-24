@@ -5,7 +5,7 @@ export const ItemWrapper = styled.div`
   flex-shrink: 0;
     /* 控制盒子不要膨胀 */
   box-sizing: border-box;
-  width: 25%;
+  width: ${props => props.itemWidth};
   padding: 8px;
 
   .inner {
@@ -34,6 +34,7 @@ export const ItemWrapper = styled.div`
     margin: 10px 0 5px;
     font-size: 12px;
     font-weight: 700;
+    /* 本styled提供的props */
     color: ${props => props.verifyColor};
   }
 
@@ -57,6 +58,7 @@ export const ItemWrapper = styled.div`
     align-items: center;
     font-size: 12px;
     font-weight: 600;
+    /* app组件最外层styled提供的props */
     color: ${props => props.theme.text.primaryColor};
 
     .count {
