@@ -11,7 +11,6 @@ const HeaderRight = memo(() => {
   /** 副作用代码 */
   useEffect(() => {
     function windowHandleClick() {
-      console.log('first')
       setShowPanel(false)
     }
     // 第三个参数 true：在事件捕获阶段触发，冒泡时不使用, 从外到内，从捕获到冒泡
@@ -23,7 +22,6 @@ const HeaderRight = memo(() => {
 
   /** 事件处理函数 */
   function profileClickHandle() {
-    console.log("second")
     setShowPanel(true)
   }
 

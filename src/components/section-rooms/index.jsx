@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { RoomsWrapper } from "./style";
 import RoomItem from "../room-item";
 
-const SectionRomms = memo(({ roomList = [], itemWidth = "25%" }) => {
+const SectionRooms = memo(({ roomList = [], itemWidth = "25%" }) => {
   return (
     <RoomsWrapper >
       <ul className="room-list">
@@ -17,8 +17,8 @@ const SectionRomms = memo(({ roomList = [], itemWidth = "25%" }) => {
   );
 });
 
-SectionRomms.propTypes = {
+SectionRooms.propTypes = {
   roomLists: PropTypes.array,
 };
 
-export default SectionRomms;
+export default SectionRooms;
