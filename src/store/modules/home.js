@@ -3,6 +3,8 @@ import {
   getHomeGoodPriceData,
   getHomeHighScoreData,
   getHomeHotRecommendData,
+  getHomeLongforData,
+  getHomePlusData,
 } from "@/services";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
@@ -19,9 +21,15 @@ export const fetchHomeDataAction = createAsyncThunk(
     getHomeDiscountData().then((res) => {
       dispatch(changeDiscountInfoAction(res));
     });
-    getHomeHotRecommendData().then(res => {
-      dispatch(changeRecommendInfoAction(res))
-    })
+    getHomeHotRecommendData().then((res) => {
+      dispatch(changeRecommendInfoAction(res));
+    });
+    getHomeLongforData().then((res) => {
+      dispatch(changeHomeLongforAction(res));
+    });
+    getHomePlusData().then((res) => {
+      dispatch(changeHomePlusDataAction(res));
+    });
   }
 );
 
@@ -36,6 +44,7 @@ const homeSlice = createSlice({
     plusInfo: {},
   },
   reducers: {
+    // 创建action可以将数据应用到state
     changeGoodPriceActions(state, { payload }) {
       state.goodPriceInfo = payload;
     },
@@ -46,7 +55,13 @@ const homeSlice = createSlice({
       state.discountInfo = payload;
     },
     changeRecommendInfoAction(state, { payload }) {
-      state.recommendInfo = payload
+      state.recommendInfo = payload;
+    },
+    changeHomeLongforAction(state, { payload }) {
+      state.longforInfo = payload;
+    },
+    changeHomePlusDataAction(state, { payload }) {
+      state.plusInfo = payload;
     },
   },
   // extraReducers 用来处理由createAsyncThunk创建的异步actions
@@ -58,10 +73,13 @@ const homeSlice = createSlice({
   },
 });
 
+// 方便redux外部调用action
 export const {
   changeGoodPriceActions,
   changeHightScoreActions,
   changeDiscountInfoAction,
-  changeRecommendInfoAction
+  changeRecommendInfoAction,
+  changeHomeLongforAction,
+  changeHomePlusDataAction,
 } = homeSlice.actions;
 export default homeSlice.reducer;
