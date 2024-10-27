@@ -13,6 +13,7 @@ export const fetchHomeDataAction = createAsyncThunk(
   "fetchdata",
   async (payload, { dispatch }) => {
     getHomeGoodPriceData().then((res) => {
+      // 将redux外的数据派发给reducer中的actions
       dispatch(changeGoodPriceActions(res));
     });
     getHomeHighScoreData().then((res) => {
