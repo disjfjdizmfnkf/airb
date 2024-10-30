@@ -9,6 +9,7 @@ import HomeSectionV2 from "./c-cpns/home-section-v2";
 import { NotEmptyO } from "@/utils/is-empty-object";
 import HomeLongfor from "./c-cpns/home-longfor";
 import HomeSectionV3 from "./c-cpns/home-section-v3";
+import { changeHeaderConfigAction } from "@/store/modules/main";
 
 const Home = memo(() => {
   // 从redux中获取数据, 使用浅比较优化性能
@@ -35,6 +36,8 @@ const Home = memo(() => {
   useEffect(() => {
     // 派发dispatch的目的是为了触发 Redux store 中的状态更新，这里由 createAsyncThunk 异步函数触发后更新redux store中的状态，redyx中就拿到请求的数据了
     dispatch(fetchHomeDataAction());
+    // 头部导航栏
+    dispatch(changeHeaderConfigAction({isFix: true, topAlpha: true}))
   }, [dispatch]);
 
   return (
